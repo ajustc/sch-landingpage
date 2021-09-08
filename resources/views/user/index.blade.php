@@ -196,7 +196,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Foto Kegiatan Siswa dan siswi Sekolah Generasi Penerus</h2>
+                <h2>Foto Kegiatan Siswa dan siswi Sekolah Generasi Mandiri</h2>
                 <p>Kegiatan yang dilakukan mulai dari prestasi hingga kegiatan belajar mengajar.</p>
             </div>
 
