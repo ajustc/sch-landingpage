@@ -1,7 +1,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
-    <div class="footer-newsletter">
+    <!-- <div class="footer-newsletter">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -13,24 +13,24 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="footer-top">
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Appland</h3>
+                <div class="col-lg-6 col-md-6 footer-contact">
+                    <h3>GM School</h3>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
+                        Bogor <br>
+                        Indonesia, 16820<br>
                         United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        <strong>Nomer Telpon</strong> +21 877557899<br>
+                        <strong>Email:</strong> gmschool@gmschool.com<br>
                     </p>
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-links">
+                <!-- <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
@@ -50,11 +50,11 @@
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
                     </ul>
-                </div>
+                </div> -->
 
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Social Networks</h4>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                <div class="col-lg-6 col-md-6 footer-links">
+                    <h4>Sosial Media</h4>
+                    <p>Jika ingin mengetahui lebih lanjut tentang event dapat mengunjungi kami di bawah ini:</p>
                     <div class="social-links mt-3">
                         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

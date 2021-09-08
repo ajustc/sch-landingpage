@@ -133,12 +133,12 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 30px;
   font-family: "Raleway", sans-serif;
   font-size: 15px;
   color: #47536e;
   white-space: nowrap;
   transition: 0.3s;
+  margin-left: 10px;
 }
 
 .navbar a i, .navbar a:focus i {
@@ -148,7 +148,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #5777ba;
+ color: red;
+ border-bottom: 2px solid #5777ba;
 }
 
 .navbar .getstarted {
@@ -294,6 +295,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
   color: #5777ba;
+  width: 90%;
 }
 
 .navbar-mobile .getstarted {
