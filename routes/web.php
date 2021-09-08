@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserAdmin;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [UserController::class, 'index']);
 Route::get("/adminpages", [AdminController::class, 'index']);
+
+
+
+Route::get("/adminpages/login", [UserAdmin::class, 'login']);
+Route::post("/adminpages/loginstore", [UserAdmin::class, 'loginstore']);
+Route::get("/adminpages/register", [UserAdmin::class, 'register']);
+Route::post("/adminpages/registerstore", [UserAdmin::class, 'registerstore']);

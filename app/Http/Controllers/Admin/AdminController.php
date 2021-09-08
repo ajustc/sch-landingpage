@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $data = [];
+        echo "<pre>";
+        print_r(Cookie::get('sch'));
+        echo "</pre>";
 
-        return view('admin.index', $data);
+        var_dump($_COOKIE);
     }
 }
