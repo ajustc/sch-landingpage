@@ -41,9 +41,16 @@ class AuthController extends Controller
             'password'  => 'required'
         ];
 
+        var_dump($email, $password);
+
         $request->validate($rules);
 
         $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            session()->flash('error', "Your email not registered.");
+            return redirect()->back();
+        }
 
         if (!Hash::check($password, $user->password)) {
             session()->flash('error', "Your password is wrong.");
