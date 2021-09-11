@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         return view('admin.index', $data);
     }
-    
+
     public function login()
     {
         if (session()->get('schtoken')) {
@@ -86,11 +86,10 @@ class AuthController extends Controller
         User::create([
             'name'      => $request->input('fullname'),
             'email'     => $request->input('email'),
-            // 'password'  => bcrypt($request->input('password'))
-            'password'  => $request->input('password')
+            'password'  => bcrypt($request->input('password'))
         ]);
 
-        return redirect()->route('adminpages.index');
+        return redirect()->to('adminpages/login');
     }
 
     public function logout()
