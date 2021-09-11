@@ -193,11 +193,13 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
                             </div>
                             <div class="card-body">
-                                <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
+                                <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span>
+                                </h4>
                                 <div class="progress mb-4">
                                     <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
+                                <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span>
+                                </h4>
                                 <div class="progress mb-4">
                                     <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -205,7 +207,8 @@
                                 <div class="progress mb-4">
                                     <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
+                                <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span>
+                                </h4>
                                 <div class="progress mb-4">
                                     <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -354,7 +357,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-danger" href="adminpages/logout">Logout</a>
             </div>
         </div>
     </div>

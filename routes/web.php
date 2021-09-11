@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\UserAdmin;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\VisiController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +23,25 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get("/", [UserController::class, 'index']);
-Route::get("/adminpages", [AdminController::class, 'index']);
+Route::get("/adminpages", [AuthController::class, 'index']);
 
+Route::get("/adminpages/login", [AuthController::class, 'login']);
+Route::post("/adminpages/loginstore", [AuthController::class, 'loginstore']);
+Route::get("/adminpages/register", [AuthController::class, 'register']);
+Route::post("/adminpages/registerstore", [AuthController::class, 'registerstore']);
+Route::get("/adminpages/logout", [AuthController::class, 'logout']);
 
+Route::get("/adminpages/banner", [BannerController::class, 'index']);
+Route::get("/adminpages/banner/create", [BannerController::class, 'create']);
+Route::post("/adminpages/banner", [BannerController::class, 'store']);
+Route::get("/adminpages/banner/{data}/edit", [BannerController::class, 'edit']);
+Route::post("/adminpages/banner/{data}/edit", [BannerController::class, 'edit']);
+Route::delete("/adminpages/banner/{data}", [BannerController::class, 'destroy']);
 
-Route::get("/adminpages/login", [UserAdmin::class, 'login']);
-Route::post("/adminpages/loginstore", [UserAdmin::class, 'loginstore']);
-Route::get("/adminpages/register", [UserAdmin::class, 'register']);
-Route::post("/adminpages/registerstore", [UserAdmin::class, 'registerstore']);
+Route::get("/adminpages/visi", [VisiController::class, 'index']);
+
+Route::get("/admin/pendaftaran", [AdminController::class, 'pendaftaran']);
+
+Route::get("/admin/biografi", [AdminController::class, 'biografi']);
+
+Route::get("/admin/kegiatan", [AdminController::class, 'kegiatan']);
