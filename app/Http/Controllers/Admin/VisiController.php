@@ -18,10 +18,11 @@ class VisiController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
+            // 'data' => Banner::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.visi', $data);
+        return view('admin.pages.visimisi.index', $data);
     }
 
     /**
@@ -31,7 +32,15 @@ class VisiController extends Controller
      */
     public function create()
     {
-        //
+        if (!session()->get('schtoken')) {
+            return redirect()->to('adminpages/login');
+        }
+        $data = [
+            // 'data' => Banner::all(),
+            'session' => session()->get('schuser')
+        ];
+
+        return view('admin.pages.visimisi.create', $data);
     }
 
     /**

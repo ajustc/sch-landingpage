@@ -30,7 +30,7 @@
             <span>Mengelola Banner</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/admin/visi') }}">
+        <a class="nav-link" href="{{ url('/adminpages/visimisi') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Visi & Misi</span></a>
     </li>

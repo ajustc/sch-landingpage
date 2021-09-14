@@ -25,12 +25,14 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [UserController::class, 'index']);
 Route::get("/adminpages", [AuthController::class, 'index']);
 
+// AUTH
 Route::get("/adminpages/login", [AuthController::class, 'login']);
 Route::post("/adminpages/loginstore", [AuthController::class, 'loginstore']);
 Route::get("/adminpages/register", [AuthController::class, 'register']);
 Route::post("/adminpages/registerstore", [AuthController::class, 'registerstore']);
 Route::get("/adminpages/logout", [AuthController::class, 'logout']);
 
+// Banner
 Route::get("/adminpages/banner", [BannerController::class, 'index']);
 Route::get("/adminpages/banner/create", [BannerController::class, 'create']);
 Route::post("/adminpages/banner", [BannerController::class, 'store']);
@@ -38,7 +40,13 @@ Route::get("/adminpages/banner/{data}/edit", [BannerController::class, 'edit']);
 Route::post("/adminpages/banner/{data}", [BannerController::class, 'update']);
 Route::delete("/adminpages/banner/{data}", [BannerController::class, 'destroy']);
 
-Route::get("/adminpages/visi", [VisiController::class, 'index']);
+// Visi Misi
+Route::get("/adminpages/visimisi", [VisiController::class, 'index']);
+Route::get("/adminpages/visimisi/create", [VisiController::class, 'create']);
+Route::post("/adminpages/visimisi", [VisiController::class, 'store']);
+Route::get("/adminpages/visimisi/{data}/edit", [VisiController::class, 'edit']);
+Route::post("/adminpages/visimisi/{data}", [VisiController::class, 'update']);
+Route::delete("/adminpages/visimisi/{data}", [VisiController::class, 'destroy']);
 
 Route::get("/admin/pendaftaran", [AdminController::class, 'pendaftaran']);
 
