@@ -35,17 +35,17 @@
             <span>Mengelola Visi & Misi</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/admin/pendaftaran') }}">
+        <a class="nav-link" href="{{ url('/adminpages/pendaftaran') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Pendaftaran</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/admin/biografi') }}">
+        <a class="nav-link" href="{{ url('/adminpages/biografi') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Biografi </span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/admin/kegiatan') }}">
+        <a class="nav-link" href="{{ url('/adminpages/kegiatan') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Kegiatan</span></a>
     </li>
@@ -63,6 +63,11 @@
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Contact</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/adminpages/footer') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Mengelola Footer</span></a>
     </li>
 
     <!-- Divider -->
