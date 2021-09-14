@@ -105,9 +105,30 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "<pre>";
-        print_r($request->all());
-        echo "</pre>";
+        $oldLogo = $request->input('oldLogo');
+        $oldPict = $request->input('oldPict');
+
+        $logo = $request->file('logo');
+        $title = $request->input('title');
+        $desc = $request->input('desc');
+        $pict = $request->file('pict');
+
+        if ($logo === null && $pict === null) {
+            Banner::find($id)->update([
+                'banner_logo' => $oldLogo,
+                'banner_title' => $title,
+                'banner_description' => $desc,
+                'banner_picture' => $oldPict,
+            ]);
+            return redirect()->to("adminpages/banner");
+        }
+        Banner::find($id)->update([
+            'banner_logo' => $logo,
+            'banner_title' => $title,
+            'banner_description' => $desc,
+            'banner_picture' => $pict,
+        ]);
+        return redirect()->to("adminpages/banner");
     }
 
     /**
