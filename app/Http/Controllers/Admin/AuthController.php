@@ -41,8 +41,6 @@ class AuthController extends Controller
             'password'  => 'required'
         ];
 
-        var_dump($email, $password);
-
         $request->validate($rules);
 
         $user = User::where('email', $email)->first();
