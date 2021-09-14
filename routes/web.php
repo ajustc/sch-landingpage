@@ -35,7 +35,7 @@ Route::get("/adminpages/banner", [BannerController::class, 'index']);
 Route::get("/adminpages/banner/create", [BannerController::class, 'create']);
 Route::post("/adminpages/banner", [BannerController::class, 'store']);
 Route::get("/adminpages/banner/{data}/edit", [BannerController::class, 'edit']);
-Route::post("/adminpages/banner/{data}/edit", [BannerController::class, 'edit']);
+Route::post("/adminpages/banner/{data}", [BannerController::class, 'update']);
 Route::delete("/adminpages/banner/{data}", [BannerController::class, 'destroy']);
 
 Route::get("/adminpages/visi", [VisiController::class, 'index']);
