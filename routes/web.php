@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\VisiController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\FooterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +46,10 @@ Route::get("/admin/pendaftaran", [AdminController::class, 'pendaftaran']);
 Route::get("/admin/biografi", [AdminController::class, 'biografi']);
 
 Route::get("/admin/kegiatan", [AdminController::class, 'kegiatan']);
+
+Route::get("/adminpages/footer", [FooterController::class, 'index']);
+Route::get("/adminpages/footer/create", [FooterController::class, 'create']);
+Route::post("/adminpages/footer", [FooterController::class, 'store']);
+Route::get("/adminpages/footer/{data}/edit", [FooterController::class, 'edit']);
+Route::post("/adminpages/footer/{data}", [FooterController::class, 'update']);
+Route::delete("/adminpages/footer/{data}", [FooterController::class, 'destroy']);

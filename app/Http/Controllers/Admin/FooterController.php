@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer;
 use Illuminate\Http\Request;
 
-class VisiController extends Controller
+class FooterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +19,11 @@ class VisiController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
+            'data' => Footer::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.visi.index', $data);
+        return view('admin.pages.footer.index', $data);
     }
 
     /**
@@ -31,7 +33,14 @@ class VisiController extends Controller
      */
     public function create()
     {
-        //
+        if (!session()->get('schtoken')) {
+            return redirect()->to('adminpages/login');
+        }
+        $data = [
+            'session' => session()->get('schuser')
+        ];
+
+        return view('admin.pages.footer.create', $data);
     }
 
     /**
@@ -42,7 +51,15 @@ class VisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $desc = $request->input('desc');
+
+        footer::create([
+            'footer_name' => $name,
+            'footer_description' => $desc,
+        ]);
+        
+        return redirect()->to('adminpages/footer');
     }
 
     /**
@@ -64,7 +81,12 @@ class VisiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'data' => footer::find($id),
+            'session' => session()->get('schuser')
+        ];
+
+        return view('admin.pages.footer.edit', $data);
     }
 
     /**
@@ -76,7 +98,14 @@ class VisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $name = $request->input('name');
+        $desc = $request->input('desc');
+        
+            footer::find($id)->update([
+                'footer_name' => $name,
+                'footer_description' => $desc,
+            ]);
+            return redirect()->to("adminpages/footer");
     }
 
     /**
@@ -87,6 +116,8 @@ class VisiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        footer::find($id)->delete();
+
+        return redirect()->to('adminpages/footer');
     }
 }
