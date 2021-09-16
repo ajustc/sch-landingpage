@@ -55,12 +55,12 @@
             <span>Mengelola Kelulusan</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ url('/adminpages/price') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Biaya pendaftaran</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ url('/adminpages/contact') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Contact</span></a>
     </li>
