@@ -52,13 +52,11 @@ class PriceController extends Controller
     public function store(Request $request)
     {
         $title = $request->input('title');
-        $description = $request->input('description');
         $name = $request->input('name');
         $price = $request->input('price');
 
         price::create([
             'price_title' => $title,
-            'price_desc' => $description,
             'price_name' => $name,
             'price_nominal' => $price,
         ]);
@@ -102,24 +100,14 @@ class PriceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $address = $request->input('address');
-        $kode_pos = $request->input('kode_pos');
-        $email = $request->input('email');
-        $telpon = $request->input('telpon');
-        $opening = $request->input('opening');
-        $close_time = $request->input('close_time');
         $title = $request->input('title');
-        $description = $request->input('description');
+        $name = $request->input('name');
+        $price = $request->input('price');
         
             price::find($id)->update([
                 'price_title' => $title,
-                'price_desc' => $description,
-                'price_address' => $address,
-                'price_kode_pos' => $kode_pos,
-                'price_email' => $email,
-                'price_tlpn' => $telpon,
-                'price_opening' => $opening,
-                'price_close' => $close_time,
+                'price_name' => $name,
+                'price_nominal' => $price,
             ]);
             return redirect()->to("adminpages/price");
     }

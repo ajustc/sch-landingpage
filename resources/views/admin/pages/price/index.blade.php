@@ -26,7 +26,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Description</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Action</th>
@@ -37,9 +36,8 @@
                         <tr>
                             <th scope="row">1</th>
                             <td><?php echo $price->price_title ?></td>
-                            <td><?php echo $price->price_desc ?></td>
                             <td><?php echo $price->price_name ?></td>
-                            <td><?php echo $price->price_price ?></td>
+                            <td><?php echo $price->price_nominal ?></td>
                             <td class="d-flex">
                                 <a href="price/<?php echo $price->price_id ?>/edit"
                                     class="btn btn-warning mr-2">Edit</a>

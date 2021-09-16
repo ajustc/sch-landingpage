@@ -25,8 +25,6 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Description</th>
                             <th scope="col">Address</th>
                             <th scope="col">Kode Pos</th>
                             <th scope="col">E-mail</th>
@@ -40,8 +38,6 @@
                         @foreach ($data as $contact)
                         <tr>
                             <th scope="row">1</th>
-                            <td><?php echo $contact->contact_title ?></td>
-                            <td><?php echo $contact->contact_desc ?></td>
                             <td><?php echo $contact->contact_address ?></td>
                             <td><?php echo $contact->contact_kode_pos ?></td>
                             <td><?php echo $contact->contact_email ?></td>

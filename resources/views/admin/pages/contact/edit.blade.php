@@ -22,16 +22,6 @@
                     enctype="multipart/form-data">
                     <?php echo csrf_field() ?>
                     <div class="mb-3 col-lg-6">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            value="<?php echo $data->contact_title ?>">
-                    </div>
-                    <div class=" mb-3 col-lg-6">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description"
-                            name="description"><?php echo $data->contact_desc ?></textarea>
-                    </div>
-                    <div class="mb-3 col-lg-6">
                         <label for="address" class="form-label">Address</label>
                         <input type="text" class="form-control" id="address" name="address"
                             value="<?php echo $data->contact_address?>">

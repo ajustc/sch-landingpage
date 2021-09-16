@@ -57,6 +57,7 @@ Route::get("/admin/biografi", [AdminController::class, 'biografi']);
 
 Route::get("/admin/kegiatan", [AdminController::class, 'kegiatan']);
 
+//price
 Route::get("/adminpages/price", [PriceController::class, 'index']);
 Route::get("/adminpages/price/create", [PriceController::class, 'create']);
 Route::post("/adminpages/price", [PriceController::class, 'store']);
@@ -64,6 +65,7 @@ Route::get("/adminpages/price/{data}/edit", [PriceController::class, 'edit']);
 Route::post("/adminpages/price/{data}", [PriceController::class, 'update']);
 Route::delete("/adminpages/price/{data}", [PriceController::class, 'destroy']);
 
+//contact
 Route::get("/adminpages/contact", [ContactController::class, 'index']);
 Route::get("/adminpages/contact/create", [ContactController::class, 'create']);
 Route::post("/adminpages/contact", [ContactController::class, 'store']);
@@ -71,6 +73,7 @@ Route::get("/adminpages/contact/{data}/edit", [ContactController::class, 'edit']
 Route::post("/adminpages/contact/{data}", [ContactController::class, 'update']);
 Route::delete("/adminpages/contact/{data}", [ContactController::class, 'destroy']);
 
+//footer
 Route::get("/adminpages/footer", [FooterController::class, 'index']);
 Route::get("/adminpages/footer/create", [FooterController::class, 'create']);
 Route::post("/adminpages/footer", [FooterController::class, 'store']);
