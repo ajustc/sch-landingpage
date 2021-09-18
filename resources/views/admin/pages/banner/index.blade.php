@@ -29,6 +29,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
                             <th scope="col">Picture</th>
+                            <th scope="col">Use</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -40,6 +41,25 @@
                             <td><?php echo $banner->banner_title ?></td>
                             <td><?php echo $banner->banner_description ?></td>
                             <td><?php echo $banner->banner_picture ?></td>
+                            <td>
+                                <?php
+                                if ($banner->banner_use == "used") {
+                                ?>
+                                    <form action="banner/used/<?php echo $banner->banner_id ?>" method="POST">
+                                        <?php echo csrf_field() ?>
+                                        <button type="submit" class="btn btn-success disabled" disabled>Used</button>
+                                    </form>
+                                <?php
+                                } else {
+                                ?>
+                                    <form action="banner/used/<?php echo $banner->banner_id ?>" method="POST">
+                                        <?php echo csrf_field() ?>
+                                        <button type="submit" class="btn btn-success">Use</button>
+                                    </form>
+                                <?php
+                                }
+                                ?>
+                            </td>
                             <td class="d-flex">
                                 <a href="banner/<?php echo $banner->banner_id ?>/edit" class="btn btn-warning">Edit</a>
                                 <form action="banner/<?php echo $banner->banner_id ?>" method="POST">

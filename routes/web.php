@@ -42,6 +42,7 @@ Route::post("/adminpages/banner", [BannerController::class, 'store']);
 Route::get("/adminpages/banner/{data}/edit", [BannerController::class, 'edit']);
 Route::post("/adminpages/banner/{data}", [BannerController::class, 'update']);
 Route::delete("/adminpages/banner/{data}", [BannerController::class, 'destroy']);
+Route::post("/adminpages/banner/used/{data}", [BannerController::class, 'used']);
 
 // Visi Misi
 Route::get("/adminpages/visimisi", [VisiController::class, 'index']);

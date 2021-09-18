@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BannerController extends Controller
 {
@@ -142,5 +143,43 @@ class BannerController extends Controller
         Banner::find($id)->delete();
 
         return redirect()->to('adminpages/banner');
+    }
+
+    public function used($id)
+    {
+        $setOldUse = Banner::where('banner_use', "used")->get()->toArray();
+        // if ($setOldUse->banner_title == "used") {
+        //     $setOldUse->update([
+        //         'banner_use' => 'unused'
+        //     ]);
+        // } else {
+        //     Banner::find($id)->update([
+        //         'banner_use' => 'used'
+        //     ]);
+        // }
+
+        echo "<pre>";
+        print_r($setOldUse == null);
+        echo "</pre>";
+
+        if (!$setOldUse) {
+            Banner::find($id)->update([
+                'banner_use' => 'used'
+            ]);
+
+            return redirect()->back();
+        } else {
+            foreach ($setOldUse as $data) {
+                Banner::where('banner_use', $data['banner_use'])->update([
+                    'banner_use' => 'unused'
+                ]);
+            }
+
+            Banner::find($id)->update([
+                'banner_use' => 'used'
+            ]);
+
+            return redirect()->back();
+        }
     }
 }

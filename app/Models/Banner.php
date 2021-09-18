@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Banner extends Model
 {
@@ -20,5 +21,6 @@ class Banner extends Model
         'banner_title',
         'banner_description',
         'banner_picture',
+        'banner_use',
     ];
 }
