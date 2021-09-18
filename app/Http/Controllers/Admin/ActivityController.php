@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 
-class BannerController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,11 @@ class BannerController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
-            'data' => Banner::all(),
+            'data' => Activity::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.banner.index', $data);
+        return view('admin.pages.activity.index', $data);
     }
 
     /**
@@ -40,7 +40,7 @@ class BannerController extends Controller
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.banner.create', $data);
+        return view('admin.pages.activity.create', $data);
     }
 
     /**
@@ -51,22 +51,19 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        $logo = $request->file('logo');
-        $title = $request->input('title');
-        $desc = $request->input('desc');
-        $pict = $request->file('pict');
+        $image = $request->file('image');
+        $created = $request->input('created');
+        $updated = $request->input('updated');
 
-        Banner::create([
-            'banner_logo' => $logo->getClientOriginalName(),
-            'banner_title' => $title,
-            'banner_description' => $desc,
-            'banner_picture' => $pict->getClientOriginalName(),
+        Activity::create([
+            'activity_image' => $image->getClientOriginalName(),
+            'created_at' => $created,
+            'updated_at' => $updated,
         ]);
 
-        $logo->store('/assets/banner');
-        $pict->store('/assets/banner');
-
-        return redirect()->to('adminpages/banner');
+        $image->store('/assets/activity');
+        
+        return redirect()->to('adminpages/activity');
     }
 
     /**
@@ -89,11 +86,11 @@ class BannerController extends Controller
     public function edit($id)
     {
         $data = [
-            'data' => Banner::find($id),
+            'data' => Activity::find($id),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.banner.edit', $data);
+        return view('admin.pages.activity.edit', $data);
     }
 
     /**
@@ -105,30 +102,27 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oldLogo = $request->input('oldLogo');
-        $oldPict = $request->input('oldPict');
-
-        $logo = $request->file('logo');
-        $title = $request->input('title');
-        $desc = $request->input('desc');
-        $pict = $request->file('pict');
-
-        if ($logo === null && $pict === null) {
-            Banner::find($id)->update([
-                'banner_logo' => $oldLogo,
-                'banner_title' => $title,
-                'banner_description' => $desc,
-                'banner_picture' => $oldPict,
+        $oldImage = $request->input('oldImage');
+        
+        $image = $request->input('image');
+        $created = $request->input('created');
+        $updated = $request->input('updated');
+        
+        if ($logo === null && $image === null) {
+            Activity::find($id)->update([
+            'activity_image' => $image,
+            'created_at' => $created,
+            'updated_at' => $updated,
             ]);
-            return redirect()->to("adminpages/banner");
+            return redirect()->to("adminpages/activity");
         }
-        Banner::find($id)->update([
-            'banner_logo' => $logo,
-            'banner_title' => $title,
-            'banner_description' => $desc,
-            'banner_picture' => $pict,
-        ]);
-        return redirect()->to("adminpages/banner");
+        
+            Activity::find($id)->update([
+            'activity_image' => $image,
+            'created_at' => $created,
+            'updated_at' => $updated,
+            ]);
+            return redirect()->to("adminpages/activity");
     }
 
     /**
@@ -139,8 +133,8 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        Banner::find($id)->delete();
+        Activity::find($id)->delete();
 
-        return redirect()->to('adminpages/banner');
+        return redirect()->to('adminpages/activity');
     }
 }

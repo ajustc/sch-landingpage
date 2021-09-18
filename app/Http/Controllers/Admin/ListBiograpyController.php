@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Price;
+use App\Models\ListBiograpy;
 use Illuminate\Http\Request;
 
-class PriceController extends Controller
+class ListBiograpyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,11 @@ class PriceController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
-            'data' => Price::all(),
+            'data' => ListBiograpy::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.price.index', $data);
+        return view('admin.pages.biograpy.list.index', $data);
     }
 
     /**
@@ -40,7 +40,7 @@ class PriceController extends Controller
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.price.create', $data);
+        return view('admin.pages.biograpy.list.create', $data);
     }
 
     /**
@@ -51,29 +51,27 @@ class PriceController extends Controller
      */
     public function store(Request $request)
     {
-        // $title = $request->input('title');
-        $name = $request->input('name');
-        $sub_name = $request->input('sub_name');
-        $price = $request->input('price');
+        $title = $request->input('title');
+        $sub_title = $request->input('sub_title');
+        $image = $request->file('image');
         $list1 = $request->input('list1');
         $list2 = $request->input('list2');
         $list3 = $request->input('list3');
         $list4 = $request->input('list4');
-        $list5 = $request->input('list5');
+        $desc = $request->input('desc');
 
-        price::create([
-            // 'price_title' => $title,
-            'price_name' => $name,
-            'price_sub_name' => $sub_name,
-            'price_nominal' => $price,
-            'price_list1' => $list1,
-            'price_list2' => $list2,
-            'price_list3' => $list3,
-            'price_list4' => $list4,
-            'price_list5' => $list5,
+        ListBiograpy::create([
+            'bl_title' => $title,
+            'bl_sub_title' => $sub_title,
+            'bl_image' => $image->getClientOriginalName(),
+            'bl_list1' => $list1,
+            'bl_list2' => $list2,
+            'bl_list3' => $list3,
+            'bl_list4' => $list4,
+            'bl_desc' => $desc,
         ]);
-        
-        return redirect()->to('adminpages/price');
+        $image->store('/assets/ListBiograpy');
+        return redirect()->to('adminpages/biograpylist');
     }
 
     /**
@@ -96,11 +94,11 @@ class PriceController extends Controller
     public function edit($id)
     {
         $data = [
-            'data' => price::find($id),
+            'data' => Biograpy::find($id),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.price.edit', $data);
+        return view('admin.pages.biograpy.list.edit', $data);
     }
 
     /**
@@ -112,27 +110,42 @@ class PriceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $title = $request->input('title');
-        $name = $request->input('name');
-        $sub_name = $request->input('sub_name');
-        $price = $request->input('price');
+        $oldImage = $request->input('oldImage');
+        
+        $title = $request->input('title');
+        $sub_title = $request->input('sub_title');
+        $image = $request->file('image');
         $list1 = $request->input('list1');
         $list2 = $request->input('list2');
         $list3 = $request->input('list3');
         $list4 = $request->input('list4');
-        $list5 = $request->input('list5');
-        
-            price::find($id)->update([
-            'price_name' => $name,
-            'price_sub_name' => $sub_name,
-            'price_nominal' => $price,
-            'price_list1' => $list1,
-            'price_list2' => $list2,
-            'price_list3' => $list3,
-            'price_list4' => $list4,
-            'price_list5' => $list5,
+        $desc = $request->input('desc');
+
+        if ($logo === null && $pict === null) {
+            Biograpy::find($id)->update([
+                'bl_title' => $title,
+                'bl_sub_title' => $sub_title,
+                'bl_image' => $image,
+                'bl_list1' => $list1,
+                'bl_list2' => $list2,
+                'bl_list3' => $list3,
+                'bl_list4' => $list4,
+                'bl_desc' => $desc,
             ]);
-            return redirect()->to("adminpages/price");
+            return redirect()->to("adminpages/bannerlist");
+        }
+        
+            Biograpy::find($id)->update([
+                'bl_title' => $title,
+                'bl_sub_title' => $sub_title,
+                'bl_image' => $image,
+                'bl_list1' => $list1,
+                'bl_list2' => $list2,
+                'bl_list3' => $list3,
+                'bl_list4' => $list4,
+                'bl_desc' => $desc,
+            ]);
+            return redirect()->to("adminpages/biograpylist");
     }
 
     /**
@@ -143,8 +156,8 @@ class PriceController extends Controller
      */
     public function destroy($id)
     {
-        price::find($id)->delete();
+        ListBiograpy::find($id)->delete();
 
-        return redirect()->to('adminpages/price');
+        return redirect()->to('adminpages/biograpylist');
     }
 }

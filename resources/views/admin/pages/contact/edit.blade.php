@@ -22,34 +22,36 @@
                     enctype="multipart/form-data">
                     <?php echo csrf_field() ?>
                     <div class="mb-3 col-lg-6">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        <label for="sub_title" class="form-label">Sub Title</label>
+                        <input type="text" class="form-control" id="sub_title" name="sub_title">
+                    </div>
+                    <div class="mb-3 col-lg-6">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" name="address"
-                            value="<?php echo $data->contact_address?>">
+                        <input type="text" class="form-control" id="address" name="address">
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="desc" class="form-label">Kode_Pos</label>
-                        <input type="text" class="form-control" id="kode_pos" name="kode_pos"
-                            value="<?php echo $data->contact_kode_pos?>">
+                        <input type="text" class="form-control" id="kode_pos" name="kode_pos">
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="desc" class="form-label">Telpon</label>
-                        <input type="text" class="form-control" id="telpon" name="telpon"
-                            value="<?php echo $data->contact_tlpn?>">
+                        <input type="text" class="form-control" id="telpon" name="telpon">
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="desc" class="form-label">E-mail</label>
-                        <input type="text" class="form-control" id="email" name="email"
-                            value="<?php echo $data->contact_email?>">
+                        <input type="text" class="form-control" id="email" name="email">
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="appointment_time" class="form-label">Opening Hour</label>
-                        <input type="time" class="form-control appointment_time" id="opening" name="opening"
-                            value="<?php echo $data->contact_opening?>">
+                        <input type="time" class="form-control appointment_time" id="opening" name="opening">
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="appointment_time" class="form-label">Close Time</label>
-                        <input type="time" class="form-control appointment_time" id="close_time" name="close_time"
-                            value="<?php echo $data->contact_close?>">
+                        <input type="time" class="form-control appointment_time" id="close_time" name="close_time">
                     </div>
                     <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Submit</button>
                 </form>

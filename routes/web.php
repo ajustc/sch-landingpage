@@ -8,6 +8,11 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\PriceController;
+use App\Http\Controllers\Admin\TitlePriceController;
+use App\Http\Controllers\Admin\GraduetController;
+use App\Http\Controllers\Admin\ActivityController;
+use App\Http\Controllers\Admin\BiograpyController;
+use App\Http\Controllers\Admin\ListBiograpyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,11 +56,39 @@ Route::get("/adminpages/visimisi/{data}/edit", [VisiController::class, 'edit']);
 Route::post("/adminpages/visimisi/{data}", [VisiController::class, 'update']);
 Route::delete("/adminpages/visimisi/{data}", [VisiController::class, 'destroy']);
 
-Route::get("/admin/pendaftaran", [AdminController::class, 'pendaftaran']);
+//biograpylist
+Route::get("/adminpages/biograpylist", [ListBiograpyController::class, 'index']);
+Route::get("/adminpages/biograpylist/create", [ListBiograpyController::class, 'create']);
+Route::post("/adminpages/biograpylist", [ListBiograpyController::class, 'store']);
+Route::get("/adminpages/biograpylist/{data}/edit", [ListBiograpyController::class, 'edit']);
+Route::post("/adminpages/biograpylist/{data}", [ListBiograpyController::class, 'update']);
+Route::delete("/adminpages/biograpylist/{data}", [ListBiograpyController::class, 'destroy']);
 
-Route::get("/admin/biografi", [AdminController::class, 'biografi']);
 
-Route::get("/admin/kegiatan", [AdminController::class, 'kegiatan']);
+//biograpy
+Route::get("/adminpages/biograpy", [BiograpyController::class, 'index']);
+Route::get("/adminpages/biograpy/create", [BiograpyController::class, 'create']);
+Route::post("/adminpages/biograpy", [BiograpyController::class, 'store']);
+Route::get("/adminpages/biograpy/{data}/edit", [BiograpyController::class, 'edit']);
+Route::post("/adminpages/biograpy/{data}", [BiograpyController::class, 'update']);
+Route::delete("/adminpages/biograpy/{data}", [BiograpyController::class, 'destroy']);
+
+
+//activity
+Route::get("/adminpages/activity", [ActivityController::class, 'index']);
+Route::get("/adminpages/activity/create", [ActivityController::class, 'create']);
+Route::post("/adminpages/activity", [ActivityController::class, 'store']);
+Route::get("/adminpages/activity/{data}/edit", [ActivityController::class, 'edit']);
+Route::post("/adminpages/activity/{data}", [ActivityController::class, 'update']);
+Route::delete("/adminpages/activity/{data}", [ActivityController::class, 'destroy']);
+
+//graduet
+Route::get("/adminpages/graduet", [GraduetController::class, 'index']);
+Route::get("/adminpages/graduet/create", [GraduetController::class, 'create']);
+Route::post("/adminpages/graduet", [GraduetController::class, 'store']);
+Route::get("/adminpages/graduet/{data}/edit", [GraduetController::class, 'edit']);
+Route::post("/adminpages/graduet/{data}", [GraduetController::class, 'update']);
+Route::delete("/adminpages/graduet/{data}", [GraduetController::class, 'destroy']);
 
 //price
 Route::get("/adminpages/price", [PriceController::class, 'index']);
@@ -64,6 +97,14 @@ Route::post("/adminpages/price", [PriceController::class, 'store']);
 Route::get("/adminpages/price/{data}/edit", [PriceController::class, 'edit']);
 Route::post("/adminpages/price/{data}", [PriceController::class, 'update']);
 Route::delete("/adminpages/price/{data}", [PriceController::class, 'destroy']);
+
+//title price
+Route::get("/adminpages/pricetitle", [TitlePriceController::class, 'index']);
+Route::get("/adminpages/pricetitle/create", [TitlePriceController::class, 'create']);
+Route::post("/adminpages/pricetitle", [TitlePriceController::class, 'store']);
+Route::get("/adminpages/pricetitle/{data}/edit", [TitlePriceController::class, 'edit']);
+Route::post("/adminpages/pricetitle/{data}", [TitlePriceController::class, 'update']);
+Route::delete("/adminpages/pricetitle/{data}", [TitlePriceController::class, 'destroy']);
 
 //contact
 Route::get("/adminpages/contact", [ContactController::class, 'index']);

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\TitlePrice;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class TitlePriceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,11 @@ class ContactController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
-            'data' => Contact::all(),
+            'data' => TitlePrice::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.contact.index', $data);
+        return view('admin.pages.price.title.index', $data);
     }
 
     /**
@@ -40,7 +40,7 @@ class ContactController extends Controller
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.contact.create', $data);
+        return view('admin.pages.price.title.create', $data);
     }
 
     /**
@@ -51,27 +51,15 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $address = $request->input('address');
-        $kode_pos = $request->input('kode_pos');
-        $email = $request->input('email');
-        $telpon = $request->input('telpon');
-        $opening = $request->input('opening');
-        $close_time = $request->input('close_time');
         $title = $request->input('title');
         $sub_title = $request->input('sub_title');
 
-        contact::create([
-            'contact_title' => $title,
-            'contact_sub_title' => $sub_title,
-            'contact_address' => $address,
-            'contact_kode_pos' => $kode_pos,
-            'contact_email' => $email,
-            'contact_tlpn' => $telpon,
-            'contact_opening' => $opening,
-            'contact_close' => $close_time,
+        TitlePrice::create([
+            'tp_title' => $title,
+            'tp_sub_title' => $sub_title,
         ]);
         
-        return redirect()->to('adminpages/contact');
+        return redirect()->to('adminpages/pricetitle');
     }
 
     /**
@@ -94,11 +82,11 @@ class ContactController extends Controller
     public function edit($id)
     {
         $data = [
-            'data' => contact::find($id),
+            'data' => TitlePrice::find($id),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.contact.edit', $data);
+        return view('admin.pages.price.title.edit', $data);
     }
 
     /**
@@ -110,26 +98,14 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $address = $request->input('address');
-        $kode_pos = $request->input('kode_pos');
-        $email = $request->input('email');
-        $telpon = $request->input('telpon');
-        $opening = $request->input('opening');
-        $close_time = $request->input('close_time');
         $title = $request->input('title');
         $sub_title = $request->input('sub_title');
         
-            contact::find($id)->update([
-                'contact_title' => $title,
-                'contact_sub_title' => $sub_title,
-                'contact_address' => $address,
-                'contact_kode_pos' => $kode_pos,
-                'contact_email' => $email,
-                'contact_tlpn' => $telpon,
-                'contact_opening' => $opening,
-                'contact_close' => $close_time,
+            TitlePrice::find($id)->update([
+                'tp_title' => $title,
+                'tp_sub_title' => $sub_title,
             ]);
-            return redirect()->to("adminpages/contact");
+            return redirect()->to("adminpages/pricetitle");
     }
 
     /**
@@ -140,8 +116,8 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        contact::find($id)->delete();
+        TitlePrice::find($id)->delete();
 
-        return redirect()->to('adminpages/contact');
+        return redirect()->to('adminpages/pricetitle');
     }
-}
+}   

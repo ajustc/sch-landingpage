@@ -21,6 +21,14 @@
                 <form action="/adminpages/contact" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field() ?>
                     <div class="mb-3 col-lg-6">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        <label for="sub_title" class="form-label">Sub Title</label>
+                        <input type="text" class="form-control" id="sub_title" name="sub_title">
+                    </div>
+                    <div class="mb-3 col-lg-6">
                         <label for="address" class="form-label">Address</label>
                         <input type="text" class="form-control" id="address" name="address">
                     </div>
