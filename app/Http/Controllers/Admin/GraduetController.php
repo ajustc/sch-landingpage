@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Price;
+use App\Models\Graduet;
 use Illuminate\Http\Request;
 
-class PriceController extends Controller
+class GraduetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,11 @@ class PriceController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
-            'data' => Price::all(),
+            'data' => Graduet::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.price.index', $data);
+        return view('admin.pages.graduet.index', $data);
     }
 
     /**
@@ -40,7 +40,7 @@ class PriceController extends Controller
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.price.create', $data);
+        return view('admin.pages.graduet.create', $data);
     }
 
     /**
@@ -51,29 +51,17 @@ class PriceController extends Controller
      */
     public function store(Request $request)
     {
-        // $title = $request->input('title');
         $name = $request->input('name');
-        $sub_name = $request->input('sub_name');
-        $price = $request->input('price');
-        $list1 = $request->input('list1');
-        $list2 = $request->input('list2');
-        $list3 = $request->input('list3');
-        $list4 = $request->input('list4');
-        $list5 = $request->input('list5');
+        $date = $request->input('date');
+        $desc = $request->input('desc');
 
-        price::create([
-            // 'price_title' => $title,
-            'price_name' => $name,
-            'price_sub_name' => $sub_name,
-            'price_nominal' => $price,
-            'price_list1' => $list1,
-            'price_list2' => $list2,
-            'price_list3' => $list3,
-            'price_list4' => $list4,
-            'price_list5' => $list5,
+        Graduet::create([
+            'graduet_name' => $name,
+            'graduet_date' => $date,
+            'graduet_desc' => $desc,
         ]);
         
-        return redirect()->to('adminpages/price');
+        return redirect()->to('adminpages/graduet');
     }
 
     /**
@@ -96,11 +84,11 @@ class PriceController extends Controller
     public function edit($id)
     {
         $data = [
-            'data' => price::find($id),
+            'data' => Graduet::find($id),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.price.edit', $data);
+        return view('admin.pages.graduet.edit', $data);
     }
 
     /**
@@ -112,27 +100,16 @@ class PriceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $title = $request->input('title');
         $name = $request->input('name');
-        $sub_name = $request->input('sub_name');
-        $price = $request->input('price');
-        $list1 = $request->input('list1');
-        $list2 = $request->input('list2');
-        $list3 = $request->input('list3');
-        $list4 = $request->input('list4');
-        $list5 = $request->input('list5');
+        $date = $request->input('date');
+        $desc = $request->input('desc');
         
-            price::find($id)->update([
-            'price_name' => $name,
-            'price_sub_name' => $sub_name,
-            'price_nominal' => $price,
-            'price_list1' => $list1,
-            'price_list2' => $list2,
-            'price_list3' => $list3,
-            'price_list4' => $list4,
-            'price_list5' => $list5,
+            Graduet::find($id)->update([
+                'graduet_name' => $name,
+                'graduet_date' => $date,
+                'graduet_desc' => $desc,
             ]);
-            return redirect()->to("adminpages/price");
+            return redirect()->to("adminpages/graduet");
     }
 
     /**
@@ -143,8 +120,8 @@ class PriceController extends Controller
      */
     public function destroy($id)
     {
-        price::find($id)->delete();
+        Graduet::find($id)->delete();
 
-        return redirect()->to('adminpages/price');
+        return redirect()->to('adminpages/graduet');
     }
 }

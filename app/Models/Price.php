@@ -16,8 +16,14 @@ class Price extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'price_title',
+        // 'price_list',
         'price_name',
+        'price_sub_name',
         'price_nominal',
+        'price_list1',
+        'price_list2',
+        'price_list3',
+        'price_list4',
+        'price_list5',
     ];
 }

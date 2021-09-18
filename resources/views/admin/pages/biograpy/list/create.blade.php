@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'footer')
+@section('title', 'biograpy list')
 @section('content')
 
 <!-- Page Wrapper -->
@@ -18,27 +18,26 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <form action="/adminpages/price/<?php echo $data->price_id; ?>" method="POST"
-                    enctype="multipart/form-data">
+                <form action="/adminpages/biograpylist" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field() ?>
                     <div class="mb-3 col-lg-6">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
                     </div>
                     <div class="mb-3 col-lg-6">
-                        <label for="sub_name" class="form-label">Sub Name</label>
-                        <input type="text" class="form-control" id="sub_name" name="sub_name">
+                        <label for="sub_title" class="form-label">Sub Title</label>
+                        <textarea type="text" class="form-control" id="sub_title" name="sub_title"></textarea>
                     </div>
                     <div class="mb-3 col-lg-6">
-                        <label for="desc" class="form-label">Price</label>
-                        <input type="text" class="form-control" id="price" name="price">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="list1" class="form-label">List 1</label>
                         <input type="text" class="form-control" id="list1" name="list1">
                     </div>
                     <div class="mb-3 col-lg-6">
-                        <label for="list2" class="form-label">List 2</label>
+                        <label for="list2" class="form-label">list 2</label>
                         <input type="text" class="form-control" id="list2" name="list2">
                     </div>
                     <div class="mb-3 col-lg-6">
@@ -50,10 +49,10 @@
                         <input type="text" class="form-control" id="list4" name="list4">
                     </div>
                     <div class="mb-3 col-lg-6">
-                        <label for="list5" class="form-label">List 5</label>
-                        <input type="text" class="form-control" id="list5" name="list5">
+                        <label for="desc" class="form-label">Description</label>
+                        <textarea type="text" class="form-control" id="desc" name="desc"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary ml-2">Save Change</button>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Submit</button>
                 </form>
 
             </div>

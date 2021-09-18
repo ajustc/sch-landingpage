@@ -35,24 +35,29 @@
             <span>Mengelola Visi & Misi</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/adminpages/pendaftaran') }}">
+        <a class="nav-link" href="{{ url('/adminpages/biograpylist') }}">
             <i class="fas fa-fw fa-table"></i>
-            <span>Mengelola Pendaftaran</span></a>
+            <span>Mengelola Biograpy List</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/adminpages/biografi') }}">
+        <a class="nav-link" href="{{ url('/adminpages/biograpy') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Biografi </span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/adminpages/kegiatan') }}">
+        <a class="nav-link" href="{{ url('/adminpages/activity') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Kegiatan</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ url('/adminpages/graduet') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Kelulusan</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/adminpages/pricetitle') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Mengelola Judul Tampilan Biaya pendaftaran</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ url('/adminpages/price') }}">
