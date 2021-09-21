@@ -20,6 +20,6 @@ class Biograpy extends Model
         'biograpy_sub_title',
         'biograpy_desc',
         'biograpy_desc1',
-
+        'biograpy_use',
     ];
 }

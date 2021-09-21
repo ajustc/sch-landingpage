@@ -25,7 +25,6 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Logo</th>
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
                             <th scope="col">Picture</th>
@@ -37,7 +36,6 @@
                         @foreach ($data as $banner)
                         <tr>
                             <th scope="row">1</th>
-                            <td><?php echo $banner->banner_logo ?></td>
                             <td><?php echo $banner->banner_title ?></td>
                             <td><?php echo $banner->banner_description ?></td>
                             <td><?php echo $banner->banner_picture ?></td>

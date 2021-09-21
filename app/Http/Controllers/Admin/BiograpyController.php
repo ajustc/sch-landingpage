@@ -62,7 +62,7 @@ class BiograpyController extends Controller
             'biograpy_desc' => $desc,
             'biograpy_desc1' => $desc1,
         ]);
-        
+
         return redirect()->to('adminpages/biograpy');
     }
 
@@ -106,14 +106,14 @@ class BiograpyController extends Controller
         $sub_title = $request->input('sub_title');
         $desc = $request->input('desc');
         $desc1 = $request->input('desc1');
-        
-            Biograpy::find($id)->update([
-                'biograpy_title' => $title,
-                'biograpy_sub_title' => $sub_title,
-                'biograpy_desc' => $desc,
-                'biograpy_desc1' => $desc1,
-            ]);
-            return redirect()->to("adminpages/biograpy");
+
+        Biograpy::find($id)->update([
+            'biograpy_title' => $title,
+            'biograpy_sub_title' => $sub_title,
+            'biograpy_desc' => $desc,
+            'biograpy_desc1' => $desc1,
+        ]);
+        return redirect()->to("adminpages/biograpy");
     }
 
     /**
@@ -127,5 +127,30 @@ class BiograpyController extends Controller
         Biograpy::find($id)->delete();
 
         return redirect()->to('adminpages/biograpy');
+    }
+
+    public function used($id)
+    {
+        $setOldUse = Biograpy::where('biograpy_use', "used")->get()->toArray();
+
+        if (!$setOldUse) {
+            Biograpy::find($id)->update([
+                'biograpy_use' => 'used'
+            ]);
+
+            return redirect()->back();
+        } else {
+            foreach ($setOldUse as $data) {
+                Biograpy::where('biograpy_use', $data['biograpy_use'])->update([
+                    'biograpy_use' => 'unused'
+                ]);
+            }
+
+            Biograpy::find($id)->update([
+                'biograpy_use' => 'used'
+            ]);
+
+            return redirect()->back();
+        }
     }
 }

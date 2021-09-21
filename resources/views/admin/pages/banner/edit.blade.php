@@ -20,12 +20,7 @@
 
                 <form action="/adminpages/banner/<?php echo $data->banner_id; ?>" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field() ?>
-                    <input type="hidden" name="oldLogo" value="<?php echo $data->banner_logo ?>">
                     <input type="hidden" name="oldPict" value="<?php echo $data->banner_picture ?>">
-                    <div class="mb-3">
-                        <label for="Logo" class="form-label">Logo</label>
-                        <input class="form-control" type="file" id="Logo" value="<?php echo $data->banner_logo ?>" name="logo">
-                    </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" value="<?php echo $data->banner_title ?>" name="title">

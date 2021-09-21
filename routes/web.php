@@ -3,7 +3,8 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\VisiController;
+use App\Http\Controllers\Admin\VisiMisiController;
+use App\Http\Controllers\Admin\ListVisiMisiController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\ContactController;
@@ -50,12 +51,21 @@ Route::delete("/adminpages/banner/{data}", [BannerController::class, 'destroy'])
 Route::post("/adminpages/banner/used/{data}", [BannerController::class, 'used']);
 
 // Visi Misi
-Route::get("/adminpages/visimisi", [VisiController::class, 'index']);
-Route::get("/adminpages/visimisi/create", [VisiController::class, 'create']);
-Route::post("/adminpages/visimisi", [VisiController::class, 'store']);
-Route::get("/adminpages/visimisi/{data}/edit", [VisiController::class, 'edit']);
-Route::post("/adminpages/visimisi/{data}", [VisiController::class, 'update']);
-Route::delete("/adminpages/visimisi/{data}", [VisiController::class, 'destroy']);
+Route::get("/adminpages/visimisi", [VisiMisiController::class, 'index']);
+Route::get("/adminpages/visimisi/create", [VisiMisiController::class, 'create']);
+Route::post("/adminpages/visimisi", [VisiMisiController::class, 'store']);
+Route::get("/adminpages/visimisi/{data}/edit", [VisiMisiController::class, 'edit']);
+Route::post("/adminpages/visimisi/{data}", [VisiMisiController::class, 'update']);
+Route::delete("/adminpages/visimisi/{data}", [VisiMisiController::class, 'destroy']);
+Route::post("/adminpages/visimisi/used/{data}", [VisiMisiController::class, 'used']);
+
+// Visi Misi List
+Route::get("/adminpages/visimisilist", [ListVisiMisiController::class, 'index']);
+Route::get("/adminpages/visimisilist/create", [ListVisiMisiController::class, 'create']);
+Route::post("/adminpages/visimisilist", [ListVisiMisiController::class, 'store']);
+Route::get("/adminpages/visimisilist/{data}/edit", [ListVisiMisiController::class, 'edit']);
+Route::post("/adminpages/visimisilist/{data}", [ListVisiMisiController::class, 'update']);
+Route::delete("/adminpages/visimisilist/{data}", [ListVisiMisiController::class, 'destroy']);
 
 //biograpylist
 Route::get("/adminpages/biograpylist", [ListBiograpyController::class, 'index']);
@@ -73,6 +83,7 @@ Route::post("/adminpages/biograpy", [BiograpyController::class, 'store']);
 Route::get("/adminpages/biograpy/{data}/edit", [BiograpyController::class, 'edit']);
 Route::post("/adminpages/biograpy/{data}", [BiograpyController::class, 'update']);
 Route::delete("/adminpages/biograpy/{data}", [BiograpyController::class, 'destroy']);
+Route::post("/adminpages/biograpy/used/{data}", [BiograpyController::class, 'used']);
 
 
 //activity

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ListVisiMisi;
 use Illuminate\Http\Request;
 
-class VisiController extends Controller
+class ListVisiMisiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +19,11 @@ class VisiController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
-            // 'data' => Banner::all(),
+            'data' => ListVisiMisi::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.visimisi.index', $data);
+        return view('admin.pages.visimisi.list.index', $data);
     }
 
     /**
@@ -36,11 +37,10 @@ class VisiController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
-            // 'data' => Banner::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.visimisi.create', $data);
+        return view('admin.pages.visimisi.list.create', $data);
     }
 
     /**
@@ -51,7 +51,15 @@ class VisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $title = $request->input('title');
+        $desc = $request->input('desc');
+
+        ListVisiMisi::create([
+            'visimisi_list_title' => $title,
+            'visimisi_list_description' => $desc,
+        ]);
+
+        return redirect()->to('adminpages/visimisilist');
     }
 
     /**
@@ -73,7 +81,15 @@ class VisiController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (!session()->get('schtoken')) {
+            return redirect()->to('adminpages/login');
+        }
+        $data = [
+            'data' => ListVisiMisi::find($id),
+            'session' => session()->get('schuser')
+        ];
+
+        return view('admin.pages.visimisi.list.edit', $data);
     }
 
     /**
@@ -85,7 +101,15 @@ class VisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $title = $request->input('title');
+        $desc = $request->input('desc');
+
+        ListVisiMisi::find($id)->update([
+            'visimisi_list_title' => $title,
+            'visimisi_list_description' => $desc,
+        ]);
+
+        return redirect()->to("adminpages/visimisilist");
     }
 
     /**
@@ -96,6 +120,8 @@ class VisiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ListVisiMisi::find($id)->delete();
+
+        return redirect()->to('adminpages/visimisilist');
     }
 }

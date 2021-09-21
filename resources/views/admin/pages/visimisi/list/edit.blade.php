@@ -18,21 +18,17 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <form action="/adminpages/visimisi" method="POST" enctype="multipart/form-data">
+                <form action="/adminpages/visimisilist/<?php echo $data->visimisi_list_id; ?>" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field() ?>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control" id="title" value="<?php echo $data->visimisi_list_title ?>" name="title">
                     </div>
                     <div class="mb-3">
                         <label for="desc" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="desc" name="desc">
+                        <input type="text" class="form-control" id="desc" value="<?php echo $data->visimisi_list_description ?>" name="desc">
                     </div>
-                    <div class="mb-3">
-                        <label for="pict" class="form-label">Picture</label>
-                        <input class="form-control" type="file" id="pict" name="pict">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Save Change</button>
                 </form>
 
             </div>

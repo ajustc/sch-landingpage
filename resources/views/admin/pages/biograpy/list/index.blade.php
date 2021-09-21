@@ -51,8 +51,7 @@
                             <td><?php echo $bl->bl_desc ?></td>
                             <td><a href="" class="btn btn-secondary mr-2">Use</a></td>
                             <td class="d-flex">
-                                <a href="biograpylist/<?php echo $bl->bl_id ?>/edit"
-                                    class="btn btn-warning mr-2">Edit</a>
+                                <a href="biograpylist/<?php echo $bl->bl_id ?>/edit" class="btn btn-warning mr-2">Edit</a>
                                 <form action="biograpylist/<?php echo $bl->bl_id ?>" method="POST">
                                     @method('DELETE')
                                     <?php echo csrf_field() ?>

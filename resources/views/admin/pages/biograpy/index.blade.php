@@ -41,10 +41,27 @@
                             <td><?php echo $biograpy->biograpy_sub_title ?></td>
                             <td><?php echo $biograpy->biograpy_desc ?></td>
                             <td><?php echo $biograpy->biograpy_desc1 ?></td>
-                            <td><a href="" class="btn btn-secondary mr-2">Use</a></td>
+                            <td>
+                                <?php
+                                if ($biograpy->biograpy_use == "used") {
+                                ?>
+                                    <form action="biograpy/used/<?php echo $biograpy->biograpy_id ?>" method="POST">
+                                        <?php echo csrf_field() ?>
+                                        <button type="submit" class="btn btn-success disabled" disabled>Used</button>
+                                    </form>
+                                <?php
+                                } else {
+                                ?>
+                                    <form action="biograpy/used/<?php echo $biograpy->biograpy_id ?>" method="POST">
+                                        <?php echo csrf_field() ?>
+                                        <button type="submit" class="btn btn-success">Use</button>
+                                    </form>
+                                <?php
+                                }
+                                ?>
+                            </td>
                             <td class="d-flex">
-                                <a href="biograpy/<?php echo $biograpy->biograpy_id ?>/edit"
-                                    class="btn btn-warning mr-2">Edit</a>
+                                <a href="biograpy/<?php echo $biograpy->biograpy_id ?>/edit" class="btn btn-warning mr-2">Edit</a>
                                 <form action="biograpy/<?php echo $biograpy->biograpy_id ?>" method="POST">
                                     @method('DELETE')
                                     <?php echo csrf_field() ?>

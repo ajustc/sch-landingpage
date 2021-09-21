@@ -17,7 +17,6 @@ class Banner extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'banner_logo',
         'banner_title',
         'banner_description',
         'banner_picture',

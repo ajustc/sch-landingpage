@@ -7,18 +7,15 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1"
-                data-aos="fade-up">
+            <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
                 <div>
-                    <h1>Sekolah? di Generasi mandiri aja</h1>
-                    <h2>Generasi mandiri merupakan sekolah dengan sistem pasantren yang mempunyai misi serta visi dalam
-                        membangun generasi profesional religius</h2>
+                    <h1><?php echo $banner[0]->banner_title ?></h1>
+                    <h2><?php echo $banner[0]->banner_description ?></h2>
                     <a href="#" class="download-btn">Daftar sekarang</a>
                 </div>
             </div>
-            <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img"
-                data-aos="fade-up">
-                <img src="/user/img/banner.svg" class="img-fluid" alt="">
+            <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
+                <img src="/assets/banner/<?php echo $banner[0]->banner_picture ?>" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -33,54 +30,40 @@
         <div class="container">
 
             <div class="section-title">
-                <h2>Visi dan Misi</h2>
-                <p>Menjunjung tinggi sopan santun dan tatakerama dalam mengajar, dan membangun generasi profesional
-                    relegius.</p>
+                <h2><?php echo $visimisi[0]->visimisi_title ?></h2>
+                <p><?php echo $visimisi[0]->visimisi_description ?></p>
             </div>
 
             <div class="row no-gutters">
                 <div class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1">
                     <div class="content d-flex flex-column justify-content-center">
                         <div class="row">
-                            <div class="col-md-6 icon-box" data-aos="fade-up">
-                                <i class="bx bx-receipt"></i>
-                                <h4>Fasilitas</h4>
-                                <p>Masjid, tempat parkir, lapangan bulu tangkis, lapangan bola, kamar mandi yang bersih,
-                                    tempat asrama terpisah.
-                                    </ap>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                                <i class="bx bx-cube-alt"></i>
-                                <h4>Kegiatan Akademik</h4>
-                                <p>Rutinitas bangun malam, mengaji, bersekolah, praktikum, dan olahraga.
-                                </p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                                <i class="bx bx-images"></i>
-                                <h4>Kegiatan Organisasi</h4>
-                                <p>Peramuka, pencak silat, dan tahfidz qur'an</p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                                <i class="bx bx-shield"></i>
-                                <h4>Kegiatan Olahraga</h4>
-                                <p>Pencak silat, sepak bola, badminton, voli, dan futsal</p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                                <i class="bx bx-atom"></i>
-                                <h4>Prestasi</h4>
-                                <p>Juara umum pencak silat, juara tahfidz qur'an dan sepak bola, tingkat kabupaten</p>
-                            </div>
+                            <?php
+
+                            $ico = array(
+                                0 => "<i class='bx bx-receipt'></i>",
+                                1 => "<i class='bx bx-cube-alt'></i>",
+                                2 => "<i class='bx bx-images'></i>",
+                                3 => "<i class='bx bx-shield'></i>",
+                                3 => "<i class='bx bx-atom'></i>",
+                                4 => "<i class='bx bx-id-card'></i>"
+                            );
+                            $dataico = $ico;
+
+                            ?>
+
+                            @foreach ($visimisi_list as $ico => $listvs)
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                                <i class="bx bx-id-card"></i>
-                                <h4>Kesejahteraan</h4>
-                                <p>Memberikan pembimbing yang profesional dan sesuai dengan ahlinya</p>
+                                <?php echo $dataico[$ico] ?>
+                                <h4><?php echo $listvs->visimisi_list_title ?></h4>
+                                <p><?php echo $listvs->visimisi_list_description ?></p>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
-                <div class="image col-xl-5 d-flex align-items-stretch justify-content-center order-1 order-lg-2"
-                    data-aos="fade-left" data-aos-delay="100">
-                    <img src="/user/img/list.svg" class="img-fluid" alt="">
+                <div class="image col-xl-5 d-flex align-items-stretch justify-content-center order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="/assets/visimisi/<?php echo $visimisi[0]->visimisi_picture ?>" class="img-fluid" alt="">
                 </div>
             </div>
 
@@ -251,18 +234,15 @@
                         </a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="/user/img/gallery/gallery-10.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel">
+                        <a href="/user/img/gallery/gallery-10.png" class="gallery-lightbox" data-gall="gallery-carousel">
                             <img src="/user/img/gallery/gallery-10.png" class="img-fluid" alt=""></a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="/user/img/gallery/gallery-11.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel">
+                        <a href="/user/img/gallery/gallery-11.png" class="gallery-lightbox" data-gall="gallery-carousel">
                             <img src="/user/img/gallery/gallery-11.png" class="img-fluid" alt=""></a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="/user/img/gallery/gallery-12.png" class="gallery-lightbox"
-                            data-gall="gallery-carousel">
+                        <a href="/user/img/gallery/gallery-12.png" class="gallery-lightbox" data-gall="gallery-carousel">
                             <img src="/user/img/gallery/gallery-12.png" class="img-fluid" alt=""></a>
                     </div>
                 </div>
@@ -464,23 +444,18 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form"
-                        data-aos="fade-up">
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-up">
                         <div class="form-group">
-                            <input placeholder="Your Name" type="text" name="name" class="form-control" id="name"
-                                required>
+                            <input placeholder="Your Name" type="text" name="name" class="form-control" id="name" required>
                         </div>
                         <div class="form-group mt-3">
-                            <input placeholder="Your Email" type="email" class="form-control" name="email" id="email"
-                                required>
+                            <input placeholder="Your Email" type="email" class="form-control" name="email" id="email" required>
                         </div>
                         <div class="form-group mt-3">
-                            <input placeholder="Subject" type="text" class="form-control" name="subject" id="subject"
-                                required>
+                            <input placeholder="Subject" type="text" class="form-control" name="subject" id="subject" required>
                         </div>
                         <div class="form-group mt-3">
-                            <textarea placeholder="Message" class="form-control" name="message" rows="5"
-                                required></textarea>
+                            <textarea placeholder="Message" class="form-control" name="message" rows="5" required></textarea>
                         </div>
                         <div class="my-3">
                             <div class="loading">Loading</div>

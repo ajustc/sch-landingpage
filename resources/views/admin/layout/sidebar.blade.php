@@ -35,6 +35,11 @@
             <span>Mengelola Visi & Misi</span></a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ url('/adminpages/visimisilist') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Mengelola Visi & Misi List</span></a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ url('/adminpages/biograpylist') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Mengelola Biograpy List</span></a>

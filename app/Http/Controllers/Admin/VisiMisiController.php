@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
+use App\Models\VisiMisi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class BannerController extends Controller
+class VisiMisiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +19,11 @@ class BannerController extends Controller
             return redirect()->to('adminpages/login');
         }
         $data = [
-            'data' => Banner::all(),
+            'data' => VisiMisi::all(),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.banner.index', $data);
+        return view('admin.pages.visimisi.index', $data);
     }
 
     /**
@@ -41,7 +40,7 @@ class BannerController extends Controller
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.banner.create', $data);
+        return view('admin.pages.visimisi.create', $data);
     }
 
     /**
@@ -56,15 +55,15 @@ class BannerController extends Controller
         $desc = $request->input('desc');
         $pict = $request->file('pict');
 
-        Banner::create([
-            'banner_title' => $title,
-            'banner_description' => $desc,
-            'banner_picture' => $pict->getClientOriginalName(),
+        VisiMisi::create([
+            'visimisi_title' => $title,
+            'visimisi_description' => $desc,
+            'visimisi_picture' => $pict->getClientOriginalName(),
         ]);
 
-        $pict->move('assets/banner', $pict->getClientOriginalName());
+        $pict->move('assets/visimisi', $pict->getClientOriginalName());
 
-        return redirect()->to('adminpages/banner');
+        return redirect()->to('adminpages/visimisi');
     }
 
     /**
@@ -86,12 +85,15 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
+        if (!session()->get('schtoken')) {
+            return redirect()->to('adminpages/login');
+        }
         $data = [
-            'data' => Banner::find($id),
+            'data' => VisiMisi::find($id),
             'session' => session()->get('schuser')
         ];
 
-        return view('admin.pages.banner.edit', $data);
+        return view('admin.pages.visimisi.edit', $data);
     }
 
     /**
@@ -110,19 +112,19 @@ class BannerController extends Controller
         $pict = $request->file('pict');
 
         if ($logo === null && $pict === null) {
-            Banner::find($id)->update([
-                'banner_title' => $title,
-                'banner_description' => $desc,
-                'banner_picture' => $oldPict,
+            VisiMisi::find($id)->update([
+                'visimisi_title' => $title,
+                'visimisi_description' => $desc,
+                'visimisi_picture' => $oldPict,
             ]);
-            return redirect()->to("adminpages/banner");
+            return redirect()->to("adminpages/visimisi");
         }
-        Banner::find($id)->update([
-            'banner_title' => $title,
-            'banner_description' => $desc,
-            'banner_picture' => $pict,
+        VisiMisi::find($id)->update([
+            'visimisi_title' => $title,
+            'visimisi_description' => $desc,
+            'visimisi_picture' => $pict,
         ]);
-        return redirect()->to("adminpages/banner");
+        return redirect()->to("adminpages/visimisi");
     }
 
     /**
@@ -133,30 +135,30 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        Banner::find($id)->delete();
+        VisiMisi::find($id)->delete();
 
-        return redirect()->to('adminpages/banner');
+        return redirect()->to('adminpages/visimisi');
     }
 
     public function used($id)
     {
-        $setOldUse = Banner::where('banner_use', "used")->get()->toArray();
+        $setOldUse = VisiMisi::where('visimisi_use', "used")->get()->toArray();
 
         if (!$setOldUse) {
-            Banner::find($id)->update([
-                'banner_use' => 'used'
+            VisiMisi::find($id)->update([
+                'visimisi_use' => 'used'
             ]);
 
             return redirect()->back();
         } else {
             foreach ($setOldUse as $data) {
-                Banner::where('banner_use', $data['banner_use'])->update([
-                    'banner_use' => 'unused'
+                VisiMisi::where('visimisi_use', $data['visimisi_use'])->update([
+                    'visimisi_use' => 'unused'
                 ]);
             }
 
-            Banner::find($id)->update([
-                'banner_use' => 'used'
+            VisiMisi::find($id)->update([
+                'visimisi_use' => 'used'
             ]);
 
             return redirect()->back();
